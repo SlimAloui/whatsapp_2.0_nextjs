@@ -4,6 +4,9 @@ import Sidebar from '../components/Sidebar'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+
+  const user = JSON.parse(localStorage.getItem("CurrentUser"));
+
   return (
     <div>
       <Head>
@@ -12,7 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Sidebar />
+      <Sidebar username={user.Username} email={user.email}/>
       
     </div>
   )

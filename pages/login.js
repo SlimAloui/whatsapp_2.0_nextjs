@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 
 const Login = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  let router= useRouter();
 
   const handleChange = (event, handler) => {
     handler(event.currentTarget.value);
@@ -12,19 +14,16 @@ const Login = () => {
   const handleAuthentification = (event) => {
     event.preventDefault();
 
+    
+
     if(username == "TOUDII" && password == "1234") {
 
       localStorage.setItem("CurrentUser", JSON.stringify({
-        username : username,
-        email : ""
+        Username : username,
+        Email : ""
       }));
 
-      return {
-        redirect: {
-          destination: "/api/hello",
-          permanent: false,
-        }, 
-      }
+      return router.push('/');
     } else { 
       alert("Error");
     }
