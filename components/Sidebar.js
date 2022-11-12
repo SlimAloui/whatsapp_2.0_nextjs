@@ -8,24 +8,11 @@ import Friend from './Friend';
 
 const Sidebar = ({username, email}) => {
 
-  const [friends, setFriends] = useState([
-    {
-      Username:"Friend 1",
-      Email: "friend@mail.com"
-    },
-    {
-      Username:"Friend 2",
-      Email: "friend@mail.com"
-    },
-    {
-      Username:"Friend 3",
-      Email: "friend@mail.com"
-    },
-  ]);
+  const [friends, setFriends] = useState([]);
   
   const [popupFriendToAdd, setPopupFriendToAdd] = useState(false);
 
-  const [friendToAdd, setFriendToAdd] = useState("rrr");
+  const [friendToAdd, setFriendToAdd] = useState("");
 
   const handleSubmitAddFriend = (event) => {
     event.preventDefault();
@@ -63,7 +50,7 @@ const Sidebar = ({username, email}) => {
         </div>
         <div className='flex space-x-5 items-center pt-4'>
             <BsSearch className='w-[1rem] h-[1rem] ml-4 text-gray-400'/>
-            <input placeholder='Search in chat' className='flex-1 mr-8'/>
+            <input placeholder='Search in chat' className='flex-1 mr-8 focus:outline-none'/>
         </div>
         <button 
           className='justify-center w-full bg-neutral-50 hover:bg-neutral-200 h-[2rem] my-5 rounded'
@@ -73,14 +60,14 @@ const Sidebar = ({username, email}) => {
             handleSubmit={handleSubmitAddFriend} 
             handleFriendChange={setFriendToAdd} /> : null
         }
-
-        <ul>
-          { friends.map((friend, i) => 
-              <Friend 
-                username={friend.Username} 
-                key={i} 
-                CloseFriend={()=> handleCloseFriend(friend.Username)} />) }
-        </ul>
+        <div>
+          <ul>
+            { friends.map((friend, i) => 
+                <Friend 
+                  username={friend.Username} 
+                  CloseFriend={()=> handleCloseFriend(friend.Username)} />) }
+          </ul>
+        </div>
     </div>
   )
 }

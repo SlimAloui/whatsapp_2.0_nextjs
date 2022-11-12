@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Sidebar from '../components/Sidebar'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Image from 'next/image';
+import Sidebar from '../components/Sidebar';
+import Main from '../components/Main';
 
 export default function Home() {
 
@@ -15,7 +15,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Sidebar username={user.Username} email={user.email}/>
+      <div className='flex'>
+        <Sidebar username={user.username} email={user.email}/>
+        <Main />
+      </div>
+      
       
     </div>
   )

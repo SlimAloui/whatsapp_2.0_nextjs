@@ -11,7 +11,8 @@ const AddFriend = ({handleSubmit, handleFriendChange}) => {
         <input 
             placeholder='Mail address...' 
             className='border-solid border-1 border-red-500' 
-            onChange={handleChange}/>
+            onChange={handleChange}
+            />
         <button type="submit" className='rounded-[0.25rem] bg-gray-300 w-[4rem]'>Add</button>
     </form>
   )

@@ -14,8 +14,6 @@ const Login = () => {
   const handleAuthentification = (event) => {
     event.preventDefault();
 
-    
-
     if(username == "TOUDII" && password == "1234") {
 
       localStorage.setItem("CurrentUser", JSON.stringify({
